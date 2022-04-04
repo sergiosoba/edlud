@@ -1,0 +1,30 @@
+{{#if students}}
+
+<table class="table table-bordered table-hover table-dark">
+
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each students}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{email}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
+
+{{else}}
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <div class="text-center text-white">
+        <h1>No Students</h1>
+        <img src="/electric-guitar.png" class="w-75" alt="">
+    </div>
+</div>
+{{/if}}
