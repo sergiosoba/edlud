@@ -9,7 +9,7 @@ export const renderStudents = async (req, res) => {
 export const register = async (req, res) => {
   try {
     req.body.password = bcrypt.hashSync(req.body.password, 10);
-    const student = Student(req.body); //new
+    const student = Student(req.body);
     await student.save();
 
     return res
