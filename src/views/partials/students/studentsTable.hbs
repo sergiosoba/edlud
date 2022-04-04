@@ -5,6 +5,8 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
             <th>Email</th>
         </tr>
     </thead>
@@ -13,6 +15,8 @@
         {{#each students}}
         <tr>
             <td>{{@index}}</td>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
             <td>{{email}}</td>
         </tr>
         {{/each}}
