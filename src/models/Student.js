@@ -20,6 +20,10 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
+    confirmationCode: {
+      type: String,
+      unique: true,
+    },
     active: {
       type: Boolean,
       default: false,
