@@ -49,13 +49,7 @@ const sendMail = async (req, token) => {
   });
 
   let host = req.hostname;
-
-  console.log("--");
-  console.log(host);
-  console.log(PORT);
-  console.log("--");
-
-  if (host != "herokuapp.com") host += PORT;
+  if (host != "edlud.herokuapp.com") host += ":" + PORT;
   let mailOptions = {
     from: `'Sergio de Edlud 👨‍🏫' <${MAIL}>`,
     to: req.body.email,
