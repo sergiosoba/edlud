@@ -93,7 +93,7 @@ export const verify = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    var student = await Student.findOne(
+    const student = await Student.findOne(
       { email: req.body.email },
       "firstName email password active"
     ).exec();
@@ -105,9 +105,7 @@ export const login = async (req, res) => {
       return res.status(400).send({ message: "Invalid credentials - pass" });
 
     if (student.active) {
-      res
-        .status(202)
-        .send((({ firstName, email }) => ({ firstName, email }))(student));
+      res.status(202).send((({ firstName }) => ({ firstName }))(student));
     } else {
       res.status(409).send({ msg: "Email don't confirmed" });
     }
