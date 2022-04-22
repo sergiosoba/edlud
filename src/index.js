@@ -4,8 +4,3 @@ import "./database";
 
 app.listen(PORT);
 console.log("Server on port", PORT);
-
-var cron = require("node-cron");
-cron.schedule("*/25 * * * *", () => {
-  console.log("LIVE");
-});
