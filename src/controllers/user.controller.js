@@ -25,14 +25,14 @@ export const register = async (req, res) => {
     try {
       await sendMail(req, token);
     } catch (error) {
-      res.status(400).send("ERROR: MAIL - " + error); // 400???
+      res.status(400).send(error); // 400???
     }
 
     return res
       .status(201)
       .send((({ firstName, email }) => ({ firstName, email }))(student));
   } catch (error) {
-    return res.status(500).send("ERROR: REGISTER - " + error);
+    return res.status(500).send(error);
   }
 };
 
@@ -48,7 +48,7 @@ const sendMail = async (req, token) => {
     },
   });
 
-  const host = req.hostname;
+  let host = req.hostname;
   if (host != "herokuapp.com") host += PORT;
   let mailOptions = {
     from: `'Sergio de Edlud 👨‍🏫' <${MAIL}>`,
@@ -63,7 +63,7 @@ const sendMail = async (req, token) => {
 
   transporter.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log("Error sending " + err.message);
+      console.log("Error occurred. " + err.message);
       return process.exit(1);
     }
 
